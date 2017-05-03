@@ -1,0 +1,121 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+img.logo{
+
+    position: fixed;
+    float: left;
+    width: 300px;
+    margin-left: 5px;
+    margin-top: 40px;
+}
+img.blank{
+
+    position: fixed;
+    float: left;
+    width: 300px;
+}
+
+form.login {
+    background: white;
+    width: 300px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.9);
+    font-family: lato;
+    position: relative;
+    color: #333;
+    display: inline-block;
+    margin-top: 350px;
+    margin-left: 5px;
+}
+
+form.register {
+    background: white;
+    width: 300px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.9);
+    font-family: lato;
+    position: relative;
+    color: #333;
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+input{
+	font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+button {
+	font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+button.login {
+    background: #ff0101;
+}
+button.register {
+    background: #ffaa00;
+}
+
+@media (max-width: 615px) {
+    html, body {
+        height: 100%;
+    }
+
+    html {
+        display: block;
+        margin: 0 auto;
+    }
+
+    body {
+        display: block;
+        vertical-align: middle;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    img.logo{
+        position: fixed;
+        width: 95%;
+        margin: 0 auto;
+
+    }
+    img.blank{
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 20px;
+
+    }
+    form.login{
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+    form.register{
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+}
