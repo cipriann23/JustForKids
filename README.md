@@ -1,0 +1,22 @@
+# JustForKids
+
+In dosarul FINAL STATE o sa avem proiectul in starea finala. Am urcat modulul de login si inregistrare si va rog daca doriti 
+sa respectati formatul dosarelor.. tot ce tine de php in dosarul "php" tot ce tine de css in "css" etc.
+
+Am facut putine modificari in baza de date plus doua inserari de date si suplimentar pentru login am creat o functie get_max_id() 
+in sql pentru a putea obtine un id unic si corespunzator (functia o gasiti in directorul database).
+
+Pentru validare in baza de date avem user_type astfel
+
+0 - copil
+1 - parinte
+2 - admin
+
+In login.php dupa cum puteti observa dupa logare in funcite de tipul userului suntem redirectionati catre urmatoarele
+
+Pentru admin -> admin.html
+       parinte -> parent.html
+       copil -> kid.html
+    
+Va rog daca doriti sa respectati numele ____.html de mai sus si toate cele mentionate de la inceput 
+pt a nu fi nevoiti sa pierdem timp ulterior!
