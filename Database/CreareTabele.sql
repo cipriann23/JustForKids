@@ -1,3 +1,11 @@
+drop table TW_Kid
+/
+drop table TW_Login
+/
+drop table TW_Answers
+/
+drop table TW_Test
+/
 Create Table TW_Kid(
 Id Integer Primary Key,
 Parent_id Integer,
@@ -14,11 +22,10 @@ Last_Name Varchar2(20),
 Password  Varchar2(20),
 User_Type Integer,
 Email Varchar2(30),
-Phone Number(10),
 City Varchar2(20),
 Country Varchar2(20)
 )
-
+/
 Create Table TW_Test
 (
 Id Integer Primary Key,
@@ -35,19 +42,13 @@ Descriere Varchar2(200)
 /
 Create Table TW_Answers(
 id_kid Integer,
-id_test integet,
+id_test integer,
 id_intrebare integer,
 answer varchar(40),
 solved number(1)
 )
 /
-
-
-
-
-
-
-
-
-
-)
+INSERT into tw_login values(0,'admin',null,null,'admin',2,'nemtocciprian10@gmail.com',null,null);
+INSERT into tw_login values(1,'kid',null,null,'kid',0,null,null,null);
+/
+commit;

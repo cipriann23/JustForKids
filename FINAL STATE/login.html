@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kids game</title>
+	<link rel="stylesheet" type="text/css" href="css/loginstyle.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<img src="resources\logo.png" class="logo">
+	<img src="resources\blank.png" class="blank">
+	<form class="login" action="php\login.php" method="post">
+		<input type="text" id="uname" class="form-control" placeholder="username" name="name"><br>
+	
+		<input type="password" id="password" class="form-control" placeholder="password" name="pwd">
+		
+		<button type="submit" class="login">LogIn</button>
+
+	</form>
+
+	<form action="php\Register.php" class="register" method="post">
+
+		<input type="text" id="uname" class="form-control" placeholder="username" name="name"><br>
+	
+		<input type="password" id="password" class="form-control" placeholder="password" name="pwd">
+
+		<input type="text" id="firstname" class="form-control" placeholder="FirstName" name="fname"><br>
+	
+		<input type="text" id="lastname" class="form-control" placeholder="LastName" name="lname">
+
+		<input type="text" id="country" class="form-control" placeholder="Country" name="country"><br>
+	
+		<input type="text" id="city" class="form-control" placeholder="City" name="city">
+	
+		<input type="email" id="email" class="form-control" placeholder="Email" name="email">
+		
+		<button type="submit" class="register">Register</button>
+		
+	</form>
+
+</body></html>
