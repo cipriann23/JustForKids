@@ -18,5 +18,7 @@ Pentru admin -> admin.html
        parinte -> parent.html
        copil -> kid.html
     
+Id-ul utilizatorului l-am salvat in $_SESSION['id']  care il puteti folosi ulterior in scripturile voastre php.    
+
 Va rog daca doriti sa respectati numele ____.html de mai sus si toate cele mentionate de la inceput 
 pt a nu fi nevoiti sa pierdem timp ulterior!
