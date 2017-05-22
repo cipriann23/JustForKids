@@ -1,0 +1,3 @@
+Alegeti harta pe care este marcat judetul CONSTANTA in mod corect
+
+var corecta 1_31_constanta

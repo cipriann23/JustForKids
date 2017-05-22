@@ -1,0 +1,3 @@
+Alegeti capitala corespunzatoare statului Roman.
+
+var corecta: 1_41_capitala

@@ -1,0 +1,3 @@
+Care dintre urmatoarele reprezentari de coordonate este cea corecta?
+
+var corecta 1_13_coordonate
