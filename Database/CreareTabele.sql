@@ -31,13 +31,12 @@ Create Table TW_Test
 Id Integer Primary Key,
 Category Number(4),
 Id_question Number(4),
-Text_intrebare Varchar2(100),
+Text_intrebare Varchar2(300),
 var1 Varchar2(40),
 var2 Varchar2(40),
 var3 Varchar2(40),
 var4 Varchar2(40),
-var_corecta Varchar2(40),
-Descriere Varchar2(200)
+var_corecta number(1)
 )
 /
 Create Table TW_Answers(
