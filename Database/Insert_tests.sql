@@ -1,0 +1,10 @@
+INSERT into tw_test values(1,1,0,1,'Care dintre urmatoarele reprezentari de coordonate este cea corecta?','1_11_coordonate.jpg','1_12_coordonate.jpg','1_13_coordonate.jpg','1_14_coordonate.jpg',3);
+INSERT into tw_test values(1,1,0,2,'Pe harta afisata am marcat mai multe tari din EUROPA. Alegeti harta pe care este marcata ROMANIA.','1_21_romania.jpg','1_22_romania.jpg','1_23_romania.jpg','1_24_romania.jpg',4);
+INSERT into tw_test values(1,1,0,3,'Alegeti harta pe care este marcat judetul CONSTANTA in mod corect.','1_31_constanta.jpg','1_32_constanta.jpg','1_33_constanta.jpg','1_34_constanta.jpg',1);
+INSERT into tw_test values(1,1,0,4,'Alegeti capitala corespunzatoare statului Roman.','1_41_capitala.jpg','1_42_capitala.jpg','1_43_capitala.jpg','1_44_capitala.jpg',1);
+INSERT into tw_test values(1,1,0,5,'Pe ce continent se afla tara ROMANIA?','1_51_continent.jpg','1_52_continent.jpg','1_53_continent.jpg','1_54_continent.jpg',4);
+INSERT into tw_test values(1,1,0,6,'Care dintre hartile urmatoare are marcat pe ea oceanul Atlantic?','1_61_oceans.jpg','1_62_oceans.jpg','1_63_oceans.jpg','1_64_oceans.jpg',2);
+INSERT into tw_test values(1,1,0,7,'Care dintre urmatoarele regiuni este marcata corect? ','1_71_moldova.jpg','1_72_moldova.jpg','1_73_moldova.jpg','1_74_moldova.jpg',2);
+INSERT into tw_test values(1,1,0,8,'Alegeti reprezentarea corecta pentru Polul Nord, Polul Sud si Ecuator.','1_81_globe.jpg','1_82_globe.jpg','1_83_globe.jpg','1_84_globe.jpg',1);
+INSERT into tw_test values(1,1,0,9,'Pentru reprezentarile urmatoare alegeti harta in care este reprezentat corect vecinul romaniei.','1_91_vecin.jpg','1_92_vecin.jpg','1_93_vecin.jpg','1_94_vecin.jpg',3);
+INSERT into tw_test values(1,1,0,10,'Romania are granita maritima marea ...','1_101_sea.jpg','1_102_sea.jpg','1_103_sea.jpg','1_104_sea.jpg',1);

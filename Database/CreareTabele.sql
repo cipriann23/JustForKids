@@ -28,8 +28,9 @@ Country Varchar2(20)
 /
 Create Table TW_Test
 (
-Id Integer Primary Key,
+Id Integer,
 Category Number(4),
+Dificulty number(1),
 Id_question Number(4),
 Text_intrebare Varchar2(300),
 var1 Varchar2(40),
