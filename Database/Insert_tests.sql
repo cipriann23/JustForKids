@@ -1,5 +1,5 @@
 INSERT into tw_test values(1,1,0,1,'Care dintre urmatoarele reprezentari de coordonate este cea corecta?','1_11_coordonate.jpg','1_12_coordonate.jpg','1_13_coordonate.jpg','1_14_coordonate.jpg',3);
-INSERT into tw_test values(1,1,0,2,'Pe harta afisata am marcat mai multe tari din EUROPA. Alegeti harta pe care este marcata ROMANIA.','1_21_romania.jpg','1_22_romania.jpg','1_23_romania.jpg','1_24_romania.jpg',4);
+INSERT into tw_test values(1,1,0,2,'Pe harta afisata am marcat mai multe tari din EUROPA. Alegeti harta pe care este marcata ROMANIA.','1_21_romania.jpg','1_22_romania.jpg','1_23_romania.jpg','1_24_romania.jpg',2);
 INSERT into tw_test values(1,1,0,3,'Alegeti harta pe care este marcat judetul CONSTANTA in mod corect.','1_31_constanta.jpg','1_32_constanta.jpg','1_33_constanta.jpg','1_34_constanta.jpg',1);
 INSERT into tw_test values(1,1,0,4,'Alegeti capitala corespunzatoare statului Roman.','1_41_capitala.jpg','1_42_capitala.jpg','1_43_capitala.jpg','1_44_capitala.jpg',1);
 INSERT into tw_test values(1,1,0,5,'Pe ce continent se afla tara ROMANIA?','1_51_continent.jpg','1_52_continent.jpg','1_53_continent.jpg','1_54_continent.jpg',4);

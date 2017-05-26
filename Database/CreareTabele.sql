@@ -45,10 +45,23 @@ id_kid Integer,
 id_test integer,
 id_intrebare integer,
 answer varchar(40),
-solved number(1)
+solved number(1),
+data TIMESTAMP
+)
+/
+Create Table TW_checkpoint(
+id_kid integer,
+id_test integer,
+id_intrebare integer
 )
 /
 INSERT into tw_login values(0,'admin',null,null,'admin',2,'nemtocciprian10@gmail.com',null,null);
 INSERT into tw_login values(1,'kid',null,null,'kid',0,null,null,null);
+/
+INSERT into TW_CHECKPOINT values(1,1,5);
+INSERT into TW_kid values(1,1,7);
+UPDATE TW_checkpoint SET id_test=1, id_intrebare=1 where id_kid=1;
+/
+delete from tw_answers;
 /
 commit;
