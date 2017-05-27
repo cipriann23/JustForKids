@@ -22,3 +22,11 @@ Id-ul utilizatorului l-am salvat in $_SESSION['id']  care il puteti folosi ulter
 
 Va rog daca doriti sa respectati numele ____.html de mai sus si toate cele mentionate de la inceput 
 pt a nu fi nevoiti sa pierdem timp ulterior cand punem tot in FINAL STATE!
+
+Pentru a trimite raporturi pe mail parintilor am creat o adresa de gmail dedicata: 
+game.report.status@gmail.com
+Din motive de scuritate va rog sa ma contactati personal pentru a va comunica parola.
+
+La adresa link de mai jos aveti un tutorial care va ajuta sa configurati apache si php pentru trimitere email la nivel 
+localhost.
+http://blog.techwheels.net/send-email-from-localhost-wamp-server-using-sendmail/
