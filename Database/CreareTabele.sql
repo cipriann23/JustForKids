@@ -56,10 +56,11 @@ id_intrebare integer
 )
 /
 INSERT into tw_login values(0,'admin',null,null,'admin',2,'nemtocciprian10@gmail.com',null,null);
-INSERT into tw_login values(1,'kid',null,null,'kid',0,null,null,null);
+INSERT into tw_login values(1,'kid','Popescu','Andrei','kid',0,null,null,null);
+INSERT into tw_login values(2,'parent','Popescu','Marghioala','parent',1,'nem.ciprian@yahoo.com','Iasi','Romania');
 /
 INSERT into TW_CHECKPOINT values(1,1,5);
-INSERT into TW_kid values(1,1,7);
+INSERT into TW_kid values(1,2,7);
 UPDATE TW_checkpoint SET id_test=1, id_intrebare=1 where id_kid=1;
 /
 delete from tw_answers;
