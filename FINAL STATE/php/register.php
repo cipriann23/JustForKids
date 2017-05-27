@@ -51,7 +51,16 @@ oci_free_statement($stid);
 
 
 $stidd = oci_parse($connection, "INSERT into TW_LOGIN (id,username,First_name,Last_name,password,user_type,email,city,country) 
-						VALUES ($u_id,'$name','$firstname','$lastname','$pass',$u_type,'$email','$city','$country')");
+						VALUES (:var1,:var2,:var3,:var4,:var5,:var6,:var7,:var8)");
+oci_bind_by_name($stidd, ":var1", $u_id);
+oci_bind_by_name($stidd, ":var2", $name);
+oci_bind_by_name($stidd, ":var3", $firstname);
+oci_bind_by_name($stidd, ":var4", $lastname);
+oci_bind_by_name($stidd, ":var5", $pass);
+oci_bind_by_name($stidd, ":var6", $u_type);
+oci_bind_by_name($stidd, ":var7", $email);
+oci_bind_by_name($stidd, ":var8", $city);
+oci_bind_by_name($stidd, ":var9", $country);
 oci_execute($stidd);
 
 oci_close($connection);

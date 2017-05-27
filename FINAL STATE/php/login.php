@@ -26,9 +26,9 @@ if (!$connection) {
 $name=$_POST['name'];
 $pass=$_POST['pwd'];
 
-$query = "SELECT * FROM TW_Login WHERE username='$name' and password='$pass'"; 
-
-$stid = oci_parse($connection, $query);
+$stid = oci_parse($connection, "SELECT * FROM TW_login where username=:name and password=:pass");
+oci_bind_by_name($stid, ":name", $name);
+oci_bind_by_name($stid, ":pass", $pass);
 
 if (!$stid) {
     $e = oci_error($conn);  // For oci_parse errors pass the connection handle
@@ -54,7 +54,9 @@ oci_free_statement($stid);
 
 
 
-$stidd = oci_parse($connection, "SELECT * FROM TW_login where username='$name' and password='$pass'");
+$stidd = oci_parse($connection, "SELECT * FROM TW_login where username=:name and password=:pass");
+oci_bind_by_name($stidd, ":name", $name);
+oci_bind_by_name($stidd, ":pass", $pass);
 oci_execute($stidd);
 
 while (($row = oci_fetch_row($stidd)) != false) {
