@@ -36,6 +36,7 @@
 	oci_execute($stid);
 	$age=7;
 	while (($row = oci_fetch_row($stid)) != false) {
+    	$parent_id=$row[1];
     	$age=$row[2];
 	}
 
@@ -71,7 +72,7 @@
 	}
 	oci_free_statement($stid);
 
-	$points=0;
+	$points=null;
 					// Submit answer
 					if(isset($_GET['choosen'])){
 				        $answer=$_GET['choosen'];
@@ -132,13 +133,46 @@
 							oci_bind_by_name($stid, ":id", $_SESSION['id']);
 							oci_bind_by_name($stid, ":id1", $last_test);
 							oci_execute($stid);
-							$points=0;
+							
 							while (($row = oci_fetch_row($stid)) != false) {
 						    	$points=$row[0];
 							}
 							oci_free_statement($stid);
 
 					}
+	// Send email raport
+	if($points!=null && $last_question==1){
+			//get parent name and email
+			$stid = oci_parse($connection, "SELECT * FROM TW_LOGIN where id=:id1");
+			oci_bind_by_name($stid, ":id1", $parent_id);
+			oci_execute($stid);
+			while (($row = oci_fetch_row($stid)) != false) {
+				$p_firstname=$row[2];
+				$p_lastname=$row[3];
+				$p_email=$row[6];
+			}
+			oci_free_statement($stid);
+			//get gid name 
+			$stid = oci_parse($connection, "SELECT * FROM TW_LOGIN where id=:id1");
+			oci_bind_by_name($stid, ":id1", $_SESSION['id']);
+			oci_execute($stid);
+			while (($row = oci_fetch_row($stid)) != false) {
+				$k_firstname=$row[2];
+				$k_lastname=$row[3];
+			}
+			oci_free_statement($stid);
+
+
+			$to = $p_email;
+            $subject  = 'Test Result';
+            $message  = 'Hi '.$p_firstname.' '.$p_lastname.' copilul dvs. '.$k_firstname.' '.$k_lastname.' a obtinut '.$points.
+                        ' puncte din 100 la testul de '.$category;
+            $headers  = 'From: [game.report.status]@gmail.com' . "\r\n" .
+                        'MIME-Version: 1.0' . "\r\n" .
+                        'Content-type: text/html; charset=utf-8';
+            mail($to, $subject, $message, $headers);
+            
+	}
 				    ///////////
 		//// GET INFOO
 		// Get last question resolved checkpoint
