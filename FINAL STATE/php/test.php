@@ -16,9 +16,18 @@
 	$connection_string
 	);
 
+	if(isset($_GET['category'])){
+       $_SESSION['category']=$_GET['category'];
+ 	}
+ 	 if(!$_SESSION['id']){
+ 	 	echo "<meta http-equiv=\"refresh\" content=\"0;URL=..\login.html\">";
+ 	 }
+
+ 	 
 	// Get last question resolved checkpoint
-	$stid = oci_parse($connection, "SELECT * FROM TW_checkpoint where id_kid=:id");
+	$stid = oci_parse($connection, "SELECT * FROM TW_checkpoint where id_kid=:id and category=:id1");
 	oci_bind_by_name($stid, ":id", $_SESSION['id']);
+	oci_bind_by_name($stid, ":id1", $_SESSION['category']);
 	oci_execute($stid);
 
 	$last_test=1;
@@ -28,8 +37,8 @@
     	$last_test=$row[1];
     	$last_question=$row[2];
 	}
-	
 	oci_free_statement($stid);
+	
 	// Get kid level
 	$stid = oci_parse($connection, "SELECT * FROM TW_kid where id=:id");
 	oci_bind_by_name($stid, ":id", $_SESSION['id']);
@@ -47,18 +56,18 @@
 		$level='hard';
 		$dificulty=1;
 	}
-	
 	oci_free_statement($stid);
+	
 	// Get question and answers
-	$stid = oci_parse($connection, "SELECT * FROM TW_test where dificulty=:dif and id=:id1 and id_question=:id2");
+	$stid = oci_parse($connection, "SELECT * FROM TW_test where dificulty=:dif and id=:id1 and id_question=:id2 and category=:id3");
 	oci_bind_by_name($stid, ":dif", $dificulty);
 	oci_bind_by_name($stid, ":id1", $last_test);
 	oci_bind_by_name($stid, ":id2", $last_question);
+	oci_bind_by_name($stid, ":id3", $_SESSION['category']);
 	oci_execute($stid);
 
 	
 	while (($row = oci_fetch_row($stid)) != false) {
-		$category=$row[1];
     	$question=$row[4];
     	$var1=$row[5];
     	$var2=$row[6];
@@ -66,11 +75,17 @@
     	$var4=$row[8];
     	$var_corecta=$row[9];
 	}
+	oci_free_statement($stid);
 
-	if($category=1){
+	if($_SESSION['category']==0){
+		$category='matematica';
+	}
+	if($_SESSION['category']==1){
 		$category='geografie';
 	}
-	oci_free_statement($stid);
+	if($_SESSION['category']==2){
+		$category='biologie';
+	}
 
 	$points=null;
 					// Submit answer
@@ -92,8 +107,6 @@
 						oci_bind_by_name($stid, ":sol", $solved);
 						oci_execute($stid);
 						oci_free_statement($stid);
-
-						$_SESSION['id'];
 
 						// update checkpoint
 						
@@ -121,10 +134,12 @@
 						}
 						oci_free_statement($stid);
 
-						$stid = oci_parse($connection, "UPDATE TW_checkpoint SET id_test=:id1, id_intrebare=:id2 where id_kid=:id");
+						$stid = oci_parse($connection, "UPDATE TW_checkpoint SET id_test=:id1, id_intrebare=:id2 where id_kid=:id 
+															and category=:id3");
 						oci_bind_by_name($stid, ":id", $_SESSION['id']);
 						oci_bind_by_name($stid, ":id1", $last_test);
 						oci_bind_by_name($stid, ":id2", $last_question);
+						oci_bind_by_name($stid, ":id3", $_SESSION['category']);
 						oci_execute($stid);
 						oci_free_statement($stid);
 						
@@ -166,7 +181,7 @@
 			$to = $p_email;
             $subject  = 'Test Result';
             $message  = 'Hi '.$p_firstname.' '.$p_lastname.' copilul dvs. '.$k_firstname.' '.$k_lastname.' a obtinut '.$points.
-                        ' puncte din 100 la testul de '.$category;
+                        ' puncte din 100 la testul de '.$_SESSION['category'];
             $headers  = 'From: [game.report.status]@gmail.com' . "\r\n" .
                         'MIME-Version: 1.0' . "\r\n" .
                         'Content-type: text/html; charset=utf-8';
@@ -174,10 +189,11 @@
             
 	}
 				    ///////////
-		//// GET INFOO
-		// Get last question resolved checkpoint
-	$stid = oci_parse($connection, "SELECT * FROM TW_checkpoint where id_kid=:id");
+	//// GET INFOO
+	// Get last question resolved checkpoint
+	$stid = oci_parse($connection, "SELECT * FROM TW_checkpoint where id_kid=:id and category=:id1");
 	oci_bind_by_name($stid, ":id", $_SESSION['id']);
+	oci_bind_by_name($stid, ":id1", $_SESSION['category']);
 	oci_execute($stid);
 
 	$last_test=1;
@@ -187,14 +203,15 @@
     	$last_test=$row[1];
     	$last_question=$row[2];
 	}
-	
 	oci_free_statement($stid);
+	
 	// Get kid level
 	$stid = oci_parse($connection, "SELECT * FROM TW_kid where id=:id");
 	oci_bind_by_name($stid, ":id", $_SESSION['id']);
 	oci_execute($stid);
 	$age=7;
 	while (($row = oci_fetch_row($stid)) != false) {
+    	$parent_id=$row[1];
     	$age=$row[2];
 	}
 
@@ -205,18 +222,18 @@
 		$level='hard';
 		$dificulty=1;
 	}
-	
 	oci_free_statement($stid);
+	
 	// Get question and answers
-	$stid = oci_parse($connection, "SELECT * FROM TW_test where dificulty=:dif and id=:id1 and id_question=:id2");
+	$stid = oci_parse($connection, "SELECT * FROM TW_test where dificulty=:dif and id=:id1 and id_question=:id2 and category=:id3");
 	oci_bind_by_name($stid, ":dif", $dificulty);
 	oci_bind_by_name($stid, ":id1", $last_test);
 	oci_bind_by_name($stid, ":id2", $last_question);
+	oci_bind_by_name($stid, ":id3", $_SESSION['category']);
 	oci_execute($stid);
 
 	
 	while (($row = oci_fetch_row($stid)) != false) {
-		$category=$row[1];
     	$question=$row[4];
     	$var1=$row[5];
     	$var2=$row[6];
@@ -224,12 +241,7 @@
     	$var4=$row[8];
     	$var_corecta=$row[9];
 	}
-
-	if($category=1){
-		$category='geografie';
-	}
 	oci_free_statement($stid);
-
 
 	
 ?>
@@ -239,7 +251,7 @@
 <html>
 <head>
 	<title>TEST <?php  echo $last_test ?></title>
-	<link rel="stylesheet" type="text/css" href="..\css\teststyle.css">
+	<link rel="stylesheet" type="text/css" href="..\css\testsstyle.css">
 	<style type="text/css" >
 	input[type='checkbox'].first {
     	background: url(../resources/test/<?php echo $category."/".$level."/".$var1 ?>);
@@ -278,7 +290,7 @@
 			<p class="points">Total Points: <?php  echo $points ?></p>
 			<p class="solved">Questions solved: <?php  echo $last_question ?> of 10</p>
 			<input class="prev" type="image" src="..\resources\next.png">
-			<img src="..\resources\prev.png" class="prev">
+			<a href="prev.php"><img src="..\resources\prev.png" class="prev"></a>
 		</div>
 		<img src="..\resources\blank.png" class="blank">
 		<div class="operationalboard">

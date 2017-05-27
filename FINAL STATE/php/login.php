@@ -1,5 +1,5 @@
 
- <?php session_start();?>// session for this user has been started
+ <?php session_start();?>
  <?php
 //Oracle DB user name
 $username = 'STUDENT';
