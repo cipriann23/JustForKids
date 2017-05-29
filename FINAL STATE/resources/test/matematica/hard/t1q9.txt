@@ -1,0 +1,4 @@
+Daca una din masini nu functioneaza, cate echipe se pot forma din restul masinilor avand in vedere ca o echipa trebuie sa contina 2 masini?
+
+Raspuns corect:
+1_94_echipe

@@ -1,0 +1,3 @@
+Pe ce continent se afla tara ROMANIA?
+
+var corecta: 1_54_continent
