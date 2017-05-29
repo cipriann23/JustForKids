@@ -43,18 +43,19 @@
 	$stid = oci_parse($connection, "SELECT * FROM TW_kid where id=:id");
 	oci_bind_by_name($stid, ":id", $_SESSION['id']);
 	oci_execute($stid);
-	$age=7;
+	
 	while (($row = oci_fetch_row($stid)) != false) {
     	$parent_id=$row[1];
-    	$age=$row[2];
-	}
+    	   $age=$row[2];
 
-	if($age<10){
-		$level='easy';
-		$dificulty=0;
-	}else{
-		$level='hard';
-		$dificulty=1;
+		if($age<10){
+			$level='easy';
+			$dificulty=0;
+		}
+		if($age>10){
+			$level='hard';
+			$dificulty=1;
+		}
 	}
 	oci_free_statement($stid);
 	
@@ -181,7 +182,7 @@
 			$to = $p_email;
             $subject  = 'Test Result';
             $message  = 'Hi '.$p_firstname.' '.$p_lastname.' copilul dvs. '.$k_firstname.' '.$k_lastname.' a obtinut '.$points.
-                        ' puncte din 100 la testul de '.$_SESSION['category'];
+                        ' puncte din 100 la testul de '.$category;
             $headers  = 'From: [game.report.status]@gmail.com' . "\r\n" .
                         'MIME-Version: 1.0' . "\r\n" .
                         'Content-type: text/html; charset=utf-8';
@@ -209,19 +210,22 @@
 	$stid = oci_parse($connection, "SELECT * FROM TW_kid where id=:id");
 	oci_bind_by_name($stid, ":id", $_SESSION['id']);
 	oci_execute($stid);
-	$age=7;
+	
 	while (($row = oci_fetch_row($stid)) != false) {
     	$parent_id=$row[1];
     	$age=$row[2];
+	
+
+		if($age<10){
+			$level='easy';
+			$dificulty=0;
+		}
+		if($age>10){
+			$level='hard';
+			$dificulty=1;
+		}
 	}
 
-	if($age<10){
-		$level='easy';
-		$dificulty=0;
-	}else{
-		$level='hard';
-		$dificulty=1;
-	}
 	oci_free_statement($stid);
 	
 	// Get question and answers
@@ -251,29 +255,29 @@
 <html>
 <head>
 	<title>TEST <?php  echo $last_test ?></title>
-	<link rel="stylesheet" type="text/css" href="..\css\testsstyle.css">
+	<link rel="stylesheet" type="text/css" href="..\css\tststyle.css">
 	<style type="text/css" >
-	input[type='checkbox'].first {
+	input[type='radio'].first {
     	background: url(../resources/test/<?php echo $category."/".$level."/".$var1 ?>);
     	background-repeat: no-repeat;
     	background-size: cover;
 	}
-	input[type='checkbox'].second {
+	input[type='radio'].second {
     	background: url(../resources/test/<?php echo $category."/".$level."/".$var2 ?>);
     	background-repeat: no-repeat;
     	background-size: cover;
 	}
-	input[type='checkbox'].third {
+	input[type='radio'].third {
     	background: url(../resources/test/<?php echo $category."/".$level."/".$var3 ?>);
     	background-repeat: no-repeat;
     	background-size: cover;
 	}
-	input[type='checkbox'].last {
+	input[type='radio'].last {
     	background: url(../resources/test/<?php echo $category."/".$level."/".$var4 ?>);
     	background-repeat: no-repeat;
     	background-size: cover;
 	}
-	input[type='checkbox']:checked {
+	input[type='radio']:checked {
     background: url(../resources/check.png) ;
     background-repeat: no-repeat;
     background-size: cover;
@@ -298,10 +302,10 @@
 			<h2>QUESTION__<?php  echo $last_question ?></h2>
 			<p class="question"><?php  echo $question ?> </p>
 			
-				<input class="first" type="checkbox" name="choosen" value="1"> 
-				<input class="second" type="checkbox" name="choosen" value="2"> 
-				<input class="third" type="checkbox" name="choosen" value="3"> 
-				<input class="last" type="checkbox" name="choosen" value="4"> 
+				<input class="first" type="radio" name="choosen" value="1"> 
+				<input class="second" type="radio" name="choosen" value="2"> 
+				<input class="third" type="radio" name="choosen" value="3"> 
+				<input class="last" type="radio" name="choosen" value="4"> 
 			
 		</div>
 		</form>
